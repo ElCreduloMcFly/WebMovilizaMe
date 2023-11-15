@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovilizaMe</title>
+    <style>
+        /* Estilo para la imagen */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Función para redirigir según el User Agent
+        function redirecionar() {
+            var userAgent = navigator.userAgent.toLowerCase();
+
+            if (userAgent.indexOf("mobi") !== -1) {
+                //Movil, Descarga el archivo automaticamente
+                window.location.href = '/ruta/para/descargar/archivo-movil';
+            } else {
+                // PC, muestra la imagen del código QR
+                document.body.innerHTML = '<img src="/ruta/a/tu/imagen-qr.png" alt="Código QR">';
+            }
+        }
+
+        // Llamada a la función al cargar la página
+        redirecionar();
+    </script>
+</body>
+</html>
+
