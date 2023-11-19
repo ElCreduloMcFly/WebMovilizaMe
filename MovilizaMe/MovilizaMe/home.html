@@ -7,6 +7,7 @@
     <style>
         /* Estilo para la imagen */
         body {
+            background-color: #C3D1F9;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -16,23 +17,7 @@
     </style>
 </head>
 <body>
-    <script>
-        // Función para redirigir según el User Agent
-        function redirecionar() {
-            var userAgent = navigator.userAgent.toLowerCase();
-
-            if (userAgent.indexOf("mobi") !== -1) {
-                //Movil, Descarga el archivo automaticamente
-                window.location.href = '/ruta/para/descargar/archivo-movil';
-            } else {
-                // PC, muestra la imagen del código QR
-                document.body.innerHTML = '<img src="/ruta/a/tu/imagen-qr.png" alt="Código QR">';
-            }
-        }
-
-        // Llamada a la función al cargar la página
-        redirecionar();
-    </script>
+    <img src="../1.png" alt="Logo de mi sitio">
 </body>
 </html>
 
