@@ -13,11 +13,54 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <img src="../1.png" alt="Logo de mi sitio">
+    <div id="contenido">
+        <img src="../1.png" alt="Logo MovilizaMe" width="250" height="250">
+        <p> MovilizaMe es una aplicación desarrollada para el transporte de los alumnos de DUOC UC sede Plaza Norte. <br>
+        En nuestra aplicación podrás registrarte como chofer o pasajero. <br>
+        Al ser chofer podrás crear viajes y cobrar por estos, indicando la marca de tu auto y cuántos asientos disponibles tienes. <br>
+        Y al ser pasajero podrás tomar el transporte que más te acomode, pudiendo elegir el precio y chofer que más te acomode.</p>
+        <div id="codigoQRContainer" style="display: none;">
+            <!-- Contenido del código QR solo para PC -->
+            <img src="../qrcode.jpg" alt="Código QR">
+            <p id="mensajeQR">Escanea para descargar nuestra app</p>
+        </div>
+        <div id="enlaceContainer" style="display: none;">
+            <!-- Contenido del enlace solo para teléfonos -->
+            <p id="mensajeLink">Haz clic <a href="https://drive.google.com/file/d/1kmy8zANme_7xAz5vgrfFu9a2Ojpr2zeo/view?usp=sharing" target="_blank">aquí</a> para descargar</p>
+        </div>
+    </div>
+    <script>
+        // Función para redirigir según el User Agent o el tamaño de la ventana
+        function redirecionar() {
+            var userAgent = navigator.userAgent.toLowerCase();
+            var esTelefono = window.innerWidth <= 767 || userAgent.match(/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i);
+
+            // Movil, Descarga el archivo automáticamente
+            if (esTelefono) {
+                document.getElementById('enlaceContainer').style.display = 'block';
+                document.getElementById('codigoQRContainer').style.display = 'none';
+            } else {
+                // PC, muestra el contenido del código QR
+                document.getElementById('codigoQRContainer').style.display = 'block';
+                document.getElementById('enlaceContainer').style.display = 'none';
+            }
+        }
+
+        // Llamada a la función al cargar la página
+        window.addEventListener('load', redirecionar);
+
+        // Llamada a la función mediante un temporizador para verificar periódicamente
+        setInterval(redirecionar, 1000);
+    </script>
 </body>
+
+
 </html>
 
